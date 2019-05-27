@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Formulário Anulação de ato administrativo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-notify.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class='header'>
+            <h5>Formulário para Anulação de Ato Administrativo</h5>
+        </div>
+        <form class="well form-horizontal" action="anulacaoAdministrativo.php" method="post"
+            name="formAnulacaoAdministrativo" id="formAnulacaoAdministrativo">
+            <table class="table table-striped">
+                <tbody class='tabela'>
+                    <tr>
+                        <td colspan="1">
+                            <label class=" subtitulos col-md-6 control-label">DADOS DO REQUERENTE</label>
+                            <!--<form class="well form-horizontal" action="anulacaoAdministrativo.php" method="post"> -->
+                            <fieldset>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Nome completo</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-user"></i></span><input id="nomeCompleto"
+                                                name="nomeCompleto" placeholder="Nome completo" class="form-control"
+                                                type="text" value=""></div>
+                                        <span class="msg-erro" id="nomeCompleto_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Nacionalidade</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-home"></i></span><input
+                                                id="nacionalidade" name="nacionalidade" placeholder="Nacionalidade"
+                                                class="form-control" value="" type="text"></div>
+                                        <span class="msg-erro" id="nacionalidade_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Estado Civil</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-home"></i></span><input id="estadoCivil"
+                                                name="estadoCivil" placeholder="Estado civil" class="form-control"
+                                                value="" type="text"></div>
+                                        <span class="msg-erro" id="estadoCivil_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Profissão</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-home"></i></span><input id="profissao"
+                                                name="profissao" placeholder="Profissão" class="form-control" value=""
+                                                type="text"></div>
+                                        <span class="msg-erro" id="profissao_error_message"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">RG</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-home"></i></span><input id="rg" name="rg"
+                                                placeholder="RG" class="form-control" value="" type="text"></div>
+                                        <span class="msg-erro" id="rg_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">CPF</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-home"></i></span><input id="cpf"
+                                                name="cpf" placeholder="CPF" class="form-control" value="" type="text">
+                                        </div>
+                                        <span class="msg-erro" id="cpf_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Endereço</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input id="endereco"
+                                                name="endereco"
+                                                placeholder="rua [av.], nº, complemento, bairro, cidade, CEP, UF"
+                                                class="form-control" value="" type="text"></div>
+                                        <span class="msg-erro" id="endereco_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Representante legal</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="representanteLegal" name="representanteLegal"
+                                                placeholder="razão social/ representante legal" class="form-control"
+                                                value="" type="text"></div>
+                                        <span class="msg-erro" id="representanteLegal_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Cidade do advogado</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="cidadeAdvogado" name="cidadeAdvogado"
+                                                placeholder="Cidade do advogado/representante" class="form-control"
+                                                value="" type="text"></div>
+                                        <span class="msg-erro" id="cidadeAdvogado_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Endereço do advogado</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="enderecoAdvogado" name="enderecoAdvogado"
+                                                placeholder="rua [av.], nº, complemento, bairro, CEP, UF"
+                                                class="form-control" value="" type="text"></div>
+                                        <span class="msg-erro" id="enderecoAdvogado_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Cidade INPI</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="cidadeINPI" name="cidadeINPI" placeholder="Cidade INPI"
+                                                class="form-control" value="" type="text"></div>
+                                        <span class="msg-erro" id="cidadeINPI_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Endereço INPI</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="enderecoINPI" name="enderecoINPI"
+                                                placeholder="rua [av.], nº, complemento, bairro, CEP, UF"
+                                                class="form-control" value="" type="text"></div>
+                                        <span class="msg-erro" id="enderecoINPI_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Número do CNPJ/MF Requerente</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="cnpjRequerente" name="cnpjRequerente"
+                                                placeholder="Número do CNPJ/MF Requerente" class="form-control" value=""
+                                                type="text"></div>
+                                        <span class="msg-erro" id="cnpjRequerente_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Atividade industrial</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="atividadeIndustrial" name="atividadeIndustrial"
+                                                placeholder="Atividade industrial" class="form-control" value=""
+                                                type="text"></div>
+                                        <span class="msg-erro" id="atividadeIndustrial_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Produto</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="produtoRequerente" name="produtoRequerente" placeholder="Produto"
+                                                class="form-control" value="" type="text"></div>
+                                        <span class="msg-erro" id="produtoRequerente_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Número carta a ser anulada</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="numeroCartaPatenteAnulada" name="numeroCartaPatenteAnulada"
+                                                placeholder="Número carta de patente MU" class="form-control" value=""
+                                                type="text"></div>
+                                        <span class="msg-erro" id="numeroCartaPatenteAnulada_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Valor por extenso</label>
+                                    <div class="col-md-10 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="valorExtenso" name="valorExtenso" placeholder="R$ Valor por extenso"
+                                                class="form-control" value="" type="text"></div>
+                                        <span class="msg-erro" id="valorExtenso_error_message"></span>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </td>
+                        <td colspan="1">
+                            <label class="subtitulos col-md-6 control-label">DADOS DO REQUERIDO</label>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Representante legal</label>
+                                    <div class="col-md-12 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="empresaRequerida" name="empresaRequerida" placeholder="razão social"
+                                                class="form-control" value="" type="text"></div>
+                                        <span class="msg-erro" id="empresaRequerida_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Endereço</label>
+                                    <div class="col-md-12 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="enderecoRequerido" name="enderecoRequerido"
+                                                placeholder="rua [av.], nº, complemento, bairro, cidade, CEP, UF"
+                                                class="form-control" value="" type="text"></div>
+                                        <span class="msg-erro" id="enderecoRequerido_error_message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Número carta de patente</label>
+                                    <div class="col-md-12 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="numeroCartaPatenteRequerido" name="numeroCartaPatenteRequerido"
+                                                placeholder="Número carta de patente MU" class="form-control" value=""
+                                                type="text"></div>
+                                        <span class="msg-erro" id="numeroCartaPatenteRequerido_error_message"></span>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <!--</form>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary">Gerar documento</button>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        function alerta(mensagemAlerta) {
+            $.notify({
+                title: '<strong>' + mensagemAlerta + '</strong>',
+                message: '<br>Reveja os dados informados.',
+                offset: 50
+            }, {
+                    type: 'danger'
+                });
+            return false;
+        }
+
+
+        $(function () {
+            $("#cpf ").mask("999.999.999-99");
+            $("#cnpjRequerente ").mask("99.999.999/9999-99");
+
+            //dados requerente
+            $("#nomeCompleto_error_message").hide(); //span
+            $("#nacionalidade_error_message").hide(); //span
+            $("#estadoCivil_error_message").hide(); //span
+            $("#profissao_error_message").hide(); //span
+            $("#rg_error_message").hide(); //span
+            $("#cpf_error_message").hide(); //span
+            $("#endereco_error_message").hide(); //span
+            $("#cnpjRequerente_error_message").hide(); //span
+            $("#atividadeIndustrial_error_message").hide(); //span
+            $("#produtoRequerente_error_message").hide(); //span
+            $("#valorExtenso_error_message").hide(); //span
+
+
+            $("#cidadeAdvogado_error_message").hide(); //span
+            $("#representanteLegal_error_message").hide(); //span
+            $("#enderecoAdvogado_error_message").hide(); //span
+
+            $("#cidadeINPI_error_message").hide(); //span
+            $("#enderecoINPI_error_message").hide(); //span
+            var error_nomeCompleto = false;
+            var error_nacionalidade = false;
+            var error_estadoCivil = false;
+            var error_profissao = false;
+            var error_rg = false;
+            var error_cpf = false;
+            var error_endereco = false;
+            var error_cnpjRequerente = false;
+            var error_atividadeIndustrial = false;
+            var error_produtoRequerente = false;
+            var error_valorExtenso = false;
+
+            var error_cidadeAdvogado = false;
+            var error_representanteLegal = false;
+            var error_enderecoAdvogado = false;
+
+            var error_cidadeINPI = false;
+            var error_enderecoINPI = false;
+            //dados requerido
+            $("#numeroCartaPatenteAnulada_error_message").hide(); //span
+            $("#empresaRequerida_error_message").hide(); //span
+            $("#enderecoRequerido_error_message").hide(); //span
+            $("#numeroCartaPatenteRequerido_error_message").hide(); //span                    
+
+            var error_numeroCartaPatenteAnulada = false;
+            var error_empresaRequerida = false;
+            var error_enderecoRequerido = false;
+            var error_numeroCartaPatenteRequerido = false;
+
+            $("#nomeCompleto").focusout(function () {//#nomeCompleto - id do input
+                check_nomeCompleto();
+            })
+
+            $("#nacionalidade").focusout(function () {//#nomeCompleto - id do input
+                check_nacionalidade();
+            })
+
+            $("#estadoCivil").focusout(function () {//#nomeCompleto - id do input
+                check_estadoCivil();
+            })
+
+            $("#profissao").focusout(function () {//#nomeCompleto - id do input
+                check_profissao();
+            })
+
+            $("#rg").focusout(function () {//#nomeCompleto - id do input
+                check_rg();
+            })
+
+            $("#cpf").focusout(function () {//#nomeCompleto - id do input
+                validarCPF();
+            })
+
+            $("#endereco").focusout(function () {//#nomeCompleto - id do input
+                check_endereco();
+            })
+
+            $("#cnpjRequerente").focusout(function () {//#nomeCompleto - id do input
+                validarCNPJ();
+            })
+
+            $("#atividadeIndustrial").focusout(function () {//#nomeCompleto - id do input
+                check_atividadeIndustrial();
+            })
+
+            $("#produtoRequerente").focusout(function () {//#nomeCompleto - id do input
+                check_produtoRequerente();
+            })
+
+            $("#valorExtenso").focusout(function () {//#nomeCompleto - id do input
+                check_valorExtenso();
+            })
+
+            $("#cidadeINPI").focusout(function () {//#nomeCompleto - id do input
+                check_cidadeINPI();
+            })
+
+            $("#enderecoINPI").focusout(function () {//#nomeCompleto - id do input
+                check_enderecoINPI();
+            })
+
+            $("#numeroCartaPatenteAnulada").focusout(function () {//#nomeCompleto - id do input
+                check_numeroCartaPatenteAnulada();
+            })
+
+            $("#empresaRequerida").focusout(function () {//#nomeCompleto - id do input
+                check_empresaRequerida();
+            })
+
+            $("#enderecoRequerido").focusout(function () {//#nomeCompleto - id do input
+                check_enderecoRequerido();
+            })
+
+            $("#numeroCartaPatenteRequerido").focusout(function () {//#nomeCompleto - id do input
+                check_numeroCartaPatenteRequerido();
+            })
+
+            $("#cidadeAdvogado").focusout(function () {//#nomeCompleto - id do input
+                check_cidadeAdvogado();
+            })
+
+            $("#enderecoAdvogado").focusout(function () {//#nomeCompleto - id do input
+                check_enderecoAdvogado();
+            })
+
+            $("#representanteLegal").focusout(function () {//#nomeCompleto - id do input
+                check_representanteLegal();
+            })
+
+
+            function validarCPF() {
+                var cpf = $("#cpf").val();
+
+                cpf = cpf.replace(/[^\d]+/g, '');
+
+                if (cpf !== '') {
+                    $("#cpf_error_message").hide();
+                    $("#cpf").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#cpf_error_message").html("Campo obrigatório");//msg erro
+                    $("#cpf_error_message").show();//msg erro
+                    $("#cpf").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_cpf = true;
+                }
+                if (cpf == '') return false;
+                // Elimina CPFs invalidos conhecidos	
+                if (cpf.length != 11 ||
+                    cpf == "00000000000" ||
+                    cpf == "11111111111" ||
+                    cpf == "22222222222" ||
+                    cpf == "33333333333" ||
+                    cpf == "44444444444" ||
+                    cpf == "55555555555" ||
+                    cpf == "66666666666" ||
+                    cpf == "77777777777" ||
+                    cpf == "88888888888" ||
+                    cpf == "99999999999")
+                    return false;
+                // Valida 1o digito	
+                var add = 0;
+                for (var i = 0; i < 9; i++)
+                    add += parseInt(cpf.charAt(i)) * (10 - i);
+                var rev = 11 - (add % 11);
+                if (rev == 10 || rev == 11)
+                    rev = 0;
+                if (rev != parseInt(cpf.charAt(9)))
+                    return false;
+                // Valida 2o digito	
+                add = 0;
+                for (i = 0; i < 10; i++)
+                    add += parseInt(cpf.charAt(i)) * (11 - i);
+                rev = 11 - (add % 11);
+                if (rev == 10 || rev == 11)
+                    rev = 0;
+                if (rev != parseInt(cpf.charAt(10)))
+                    return false;
+                return true;
+            }
+
+            function validarCNPJ() {
+                var cnpj = $("#cnpjRequerente").val();
+
+                cnpj = cnpj.replace(/[^\d]+/g, '');
+                if (cnpj !== '') {
+                    $("#cnpjRequerente_error_message").hide();
+                    $("#cnpjRequerente").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#cnpjRequerente_error_message").html("Campo obrigatório");//msg erro
+                    $("#cnpjRequerente_error_message").show();//msg erro
+                    $("#cnpjRequerente").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_cnpjRequerente = true;
+                }
+                if (cnpj == '') return false;
+
+                if (cnpj.length != 14)
+                    return false;
+
+                // Elimina CNPJs invalidos conhecidos
+                if (cnpj == "00000000000000" ||
+                    cnpj == "11111111111111" ||
+                    cnpj == "22222222222222" ||
+                    cnpj == "33333333333333" ||
+                    cnpj == "44444444444444" ||
+                    cnpj == "55555555555555" ||
+                    cnpj == "66666666666666" ||
+                    cnpj == "77777777777777" ||
+                    cnpj == "88888888888888" ||
+                    cnpj == "99999999999999")
+                    return false;
+
+                // Valida DVs
+                var tamanho = cnpj.length - 2
+                var numeros = cnpj.substring(0, tamanho);
+                var digitos = cnpj.substring(tamanho);
+                var soma = 0;
+                var pos = tamanho - 7;
+                for (var i = tamanho; i >= 1; i--) {
+                    soma += numeros.charAt(tamanho - i) * pos--;
+                    if (pos < 2)
+                        pos = 9;
+                }
+                var resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+                if (resultado != digitos.charAt(0))
+                    return false;
+
+                tamanho = tamanho + 1;
+                numeros = cnpj.substring(0, tamanho);
+                soma = 0;
+                pos = tamanho - 7;
+                for (var i = tamanho; i >= 1; i--) {
+                    soma += numeros.charAt(tamanho - i) * pos--;
+                    if (pos < 2)
+                        pos = 9;
+                }
+                resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+                if (resultado != digitos.charAt(1))
+                    return false;
+                return true;
+            }
+
+            function check_nomeCompleto() {
+                var pattern = /[a-zA-Z]/;
+                var nomeCompleto = $("#nomeCompleto").val();
+
+                if (pattern.test(nomeCompleto) && nomeCompleto !== '') {
+                    $("#nomeCompleto_error_message").hide();
+                    $("#nomeCompleto").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    if(pattern.test(nomeCompleto)==false && nomeCompleto !== ''){
+                        $("#nomeCompleto_error_message").html("Campo incorreto");//msg erro
+                    } else {
+                        $("#nomeCompleto_error_message").html("Campo obrigatório");//msg erro
+                    }   
+                    $("#nomeCompleto_error_message").show();//msg erro
+                    $$("#nomeCompleto").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_nomeCompleto = true;
+                }
+            }
+
+            function check_nacionalidade() {
+                var pattern = /[a-zA-Z]/;
+                var nacionalidade = $("#nacionalidade").val();
+
+                if (pattern.test(nacionalidade) && nacionalidade !== '') {
+                    $("#nacionalidade_error_message").hide();
+                    $("#nacionalidade").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    if(pattern.test(nacionalidade)==false && nacionalidade !== ''){
+                        $("#nacionalidade_error_message").html("Campo incorreto");//msg erro
+                    } else {
+                        $("#nacionalidade_error_message").html("Campo obrigatório");//msg erro
+                    }   
+                    $("#nacionalidade_error_message").show();//msg erro
+                    $("#nacionalidade").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_nacionalidade = true;
+                }
+            }
+
+            function check_estadoCivil() {
+                var pattern = /^[a-zA-Z]*$/;
+                var estadoCivil = $("#estadoCivil").val();
+
+                if (pattern.test(estadoCivil) && estadoCivil !== '') {
+                    $("#estadoCivil_error_message").hide();
+                    $("#estadoCivil").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    if(pattern.test(estadoCivil)==false && estadoCivil !== ''){
+                        $("#estadoCivil_error_message").html("Campo incorreto");//msg erro
+                    } else {
+                        $("#estadoCivil_error_message").html("Campo obrigatório");//msg erro
+                    }   
+                    $("#estadoCivil_error_message").show();//msg erro
+                    $("#estadoCivil").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_estadoCivil = true;
+                }
+            }
+
+            function check_profissao() {
+                var pattern = /[a-zA-Z]/;
+                var profissao = $("#profissao").val();
+                
+                if (pattern.test(profissao) && profissao !== '') {
+                    $("#profissao_error_message").hide();
+                    $("#profissao").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    if(pattern.test(profissao)==false && profissao !== ''){
+                        $("#profissao_error_message").html("Campo incorreto");//msg erro
+                    } else {
+                        $("#profissao_error_message").html("Campo obrigatório");//msg erro
+                    }    
+                    $("#profissao_error_message").show();//msg erro
+                    $("#profissao").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_profissao = true;
+                }
+            }
+
+            function check_rg() {
+                var pattern = /[0-9]+/;
+                var rg = $("#rg").val();
+
+                if (pattern.test(rg) && rg !== '') {
+                    $("#rg_error_message").hide();
+                    $("#rg").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#rg_error_message").html("Campo obrigatório");//msg erro
+                    $("#rg_error_message").show();//msg erro
+                    $("#rg").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_rg = true;
+                }
+            }
+
+            function check_endereco() {
+                //var pattern = /^[a-zA-Z]*$/;
+                var endereco = $("#endereco").val();
+
+                if (/*pattern.test(endereco) && */endereco !== '') {
+                    $("#endereco_error_message").hide();
+                    $("#endereco").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#endereco_error_message").html("Campo obrigatório");//msg erro
+                    $("#endereco_error_message").show();//msg erro
+                    $("#endereco").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_endereco = true;
+                }
+            }
+
+            function check_atividadeIndustrial() {
+                var pattern = /[a-zA-Z]/;
+                var atividadeIndustrial = $("#atividadeIndustrial").val();
+                console.log("ativ indus", atividadeIndustrial)
+                
+                if (pattern.test(atividadeIndustrial) && atividadeIndustrial !== '') {
+                    $("#atividadeIndustrial_error_message").hide();
+                    $("#atividadeIndustrial").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    if(pattern.test(atividadeIndustrial)==false && atividadeIndustrial !== ''){
+                        $("#atividadeIndustrial_error_message").html("Campo incorreto");//msg erro
+                    } else {
+                        $("#atividadeIndustrial_error_message").html("Campo obrigatório");//msg erro
+                    }                    
+                    $("#atividadeIndustrial_error_message").show();//msg erro
+                    $("#atividadeIndustrial").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_atividadeIndustrial = true;
+                }
+            }
+
+            function check_produtoRequerente() {
+                var pattern = /[a-zA-Z]/;
+                var produtoRequerente = $("#produtoRequerente").val();
+
+                if (pattern.test(produtoRequerente) && produtoRequerente !== '') {
+                    $("#produtoRequerente_error_message").hide();
+                    $("#produtoRequerente").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    if(pattern.test(produtoRequerente)==false && produtoRequerente !== ''){
+                        $("#produtoRequerente_error_message").html("Campo incorreto");//msg erro
+                    } else {
+                        $("#produtoRequerente_error_message").html("Campo obrigatório");//msg erro
+                    }   
+                    $("#produtoRequerente_error_message").show();//msg erro
+                    $("#produtoRequerente").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_produtoRequerente = true;
+                }
+            }
+
+            function check_valorExtenso() {
+                var pattern = /[a-zA-Z]/;
+                var valorExtenso = $("#valorExtenso").val();
+
+                if (pattern.test(valorExtenso) && valorExtenso !== '') {
+                    $("#valorExtenso_error_message").hide();
+                    $("#valorExtenso").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    if(pattern.test(valorExtenso)==false && valorExtenso !== ''){
+                        $("#valorExtenso_error_message").html("Campo incorreto");//msg erro
+                    } else {
+                        $("#valorExtenso_error_message").html("Campo obrigatório");//msg erro
+                    }   
+                    $("#valorExtenso_error_message").show();//msg erro
+                    $("#valorExtenso").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_valorExtenso = true;
+                }
+            }
+
+            function check_cidadeINPI() {
+                var pattern = /^[a-zA-Z]*$/;
+                var cidadeINPI = $("#cidadeINPI").val();
+
+                if (pattern.test(cidadeINPI) && cidadeINPI !== '') {
+                    $("#cidadeINPI_error_message").hide();
+                    $("#cidadeINPI").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#cidadeINPI_error_message").html("Campo obrigatório");//msg erro
+                    $("#cidadeINPI_error_message").show();//msg erro
+                    $("#cidadeINPI").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_cidadeINPI = true;
+                }
+            }
+
+            function check_enderecoINPI() {
+                //var pattern = /^[a-zA-Z]*$/;
+                var enderecoINPI = $("#enderecoINPI").val();
+
+                if (/*pattern.test(enderecoINPI) && */enderecoINPI !== '') {
+                    $("#enderecoINPI_error_message").hide();
+                    $("#enderecoINPI").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#enderecoINPI_error_message").html("Campo obrigatório");//msg erro
+                    $("#enderecoINPI_error_message").show();//msg erro
+                    $("#enderecoINPI").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_enderecoINPI = true;
+                }
+            }
+
+            function check_numeroCartaPatenteAnulada() {
+                //var pattern = /^[a-zA-Z]*$/;
+                var numeroCartaPatenteAnulada = $("#numeroCartaPatenteAnulada").val();
+                console.log("anulada", numeroCartaPatenteAnulada)
+                if (/*pattern.test(numeroCartaPatenteAnulada) && */numeroCartaPatenteAnulada !== '') {
+                    $("#numeroCartaPatenteAnulada_error_message").hide();
+                    $("#numeroCartaPatenteAnulada").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#numeroCartaPatenteAnulada_error_message").html("Campo obrigatório");//msg erro
+                    $("#numeroCartaPatenteAnulada_error_message").show();//msg erro
+                    $("#numeroCartaPatenteAnulada").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_numeroCartaPatenteAnulada = true;
+                }
+            }
+
+            function check_empresaRequerida() {
+                var pattern = /[a-zA-Z]/;
+                var empresaRequerida = $("#empresaRequerida").val();
+
+                if (pattern.test(empresaRequerida) && empresaRequerida !== '') {
+                    $("#empresaRequerida_error_message").hide();
+                    $("#empresaRequerida").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    if(pattern.test(empresaRequerida)==false && empresaRequerida !== ''){
+                        $("#empresaRequerida_error_message").html("Campo incorreto");//msg erro
+                    } else {
+                        $("#empresaRequerida_error_message").html("Campo obrigatório");//msg erro
+                    }   
+                    $("#empresaRequerida_error_message").show();//msg erro
+                    $("#empresaRequerida").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_empresaRequerida = true;
+                }
+            }
+
+            function check_enderecoRequerido() {
+                //var pattern = /^[a-zA-Z]*$/;
+                var enderecoRequerido = $("#enderecoRequerido").val();
+
+                if (/*pattern.test(enderecoRequerido) && */enderecoRequerido !== '') {
+                    $("#enderecoRequerido_error_message").hide();
+                    $("#enderecoRequerido").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#enderecoRequerido_error_message").html("Campo obrigatório");//msg erro
+                    $("#enderecoRequerido_error_message").show();//msg erro
+                    $("#enderecoRequerido").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_enderecoRequerido = true;
+                }
+            }
+
+            function check_numeroCartaPatenteRequerido() {
+                var pattern = /^[A-Za-z0-9-]+$/;
+                var numeroCartaPatenteRequerido = $("#numeroCartaPatenteRequerido").val();
+
+                if (pattern.test(numeroCartaPatenteRequerido) && numeroCartaPatenteRequerido !== '') {
+                    $("#numeroCartaPatenteRequerido_error_message").hide();
+                    $("#numeroCartaPatenteRequerido").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#numeroCartaPatenteRequerido_error_message").html("Campo obrigatório");//msg erro
+                    $("#numeroCartaPatenteRequerido_error_message").show();//msg erro
+                    $("#numeroCartaPatenteRequerido").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_numeroCartaPatenteRequerido = true;
+                }
+            }
+
+            function check_cidadeAdvogado() {
+                var pattern = /^[a-zA-Z]*$/;
+                var cidadeAdvogado = $("#cidadeAdvogado").val();
+
+                if (pattern.test(cidadeAdvogado) && cidadeAdvogado !== '') {
+                    $("#cidadeAdvogado_error_message").hide();
+                    $("#cidadeAdvogado").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#cidadeAdvogado_error_message").html("Campo obrigatório");//msg erro
+                    $("#cidadeAdvogado_error_message").show();//msg erro
+                    $("#cidadeAdvogado").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_cidadeAdvogado = true;
+                }
+            }
+
+            function check_enderecoAdvogado() {
+                //var pattern = /^[a-zA-Z]*$/;
+                var enderecoAdvogado = $("#enderecoAdvogado").val();
+
+                if (/*pattern.test(enderecoAdvogado) && */enderecoAdvogado !== '') {
+                    $("#enderecoAdvogado_error_message").hide();
+                    $("#enderecoAdvogado").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    $("#enderecoAdvogado_error_message").html("Campo obrigatório");//msg erro
+                    $("#enderecoAdvogado_error_message").show();//msg erro
+                    $("#enderecoAdvogado").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_enderecoAdvogado = true;
+                }
+            }
+
+            function check_representanteLegal() {
+                var pattern = /[a-zA-Z]/;
+                var representanteLegal = $("#representanteLegal").val();
+
+                if (pattern.test(representanteLegal) && representanteLegal !== '') {
+                    $("#representanteLegal_error_message").hide();
+                    $("#representanteLegal").css("border-bottom", "2px solid #34F458");//msg erro
+                } else {
+                    if(pattern.test(representanteLegal)==false && representanteLegal !== ''){
+                        $("#representanteLegal_error_message").html("Campo incorreto");//msg erro
+                    } else {
+                        $("#representanteLegal_error_message").html("Campo obrigatório");//msg erro
+                    }   
+                    $("#representanteLegal_error_message").show();//msg erro
+                    $("#representanteLegal").css("border-bottom", "2px solid #F90A0A");//input nome
+                    error_representanteLegal = true;
+                }
+            }
+
+            $("#formAnulacaoAdministrativo").submit(function () {
+                error_nomeCompleto = false;
+                error_nacionalidade = false;
+                error_estadoCivil = false;
+                error_profissao = false;
+                //error_rg = false;
+                //error_cpf = false;
+                error_endereco = false;
+                error_cnpjRequerente = false;
+                error_atividadeIndustrial = false;
+                error_produtoRequerente = false;
+                error_valorExtenso = false;
+                error_representanteLegal = false;
+                error_cidadeAdvogado = false;
+                error_enderecoAdvogado = false;
+                error_cidadeINPI = false;
+                error_enderecoINPI = false;
+                error_numeroCartaPatenteAnulada = false;
+                error_empresaRequerida = false;
+                error_enderecoRequerido = false;
+                error_numeroCartaPatenteRequerido = false;
+
+                check_nomeCompleto();
+                check_nacionalidade();
+                check_estadoCivil();
+                check_profissao();
+                var verificaCPF = validarCPF();
+                check_endereco();
+                var verificaCNPJ = validarCNPJ();
+                check_atividadeIndustrial();
+                check_produtoRequerente();
+                check_valorExtenso();
+                check_representanteLegal();
+                check_cidadeAdvogado();
+                check_enderecoAdvogado();
+                check_cidadeINPI();
+                check_enderecoINPI();
+                check_numeroCartaPatenteAnulada();
+                check_empresaRequerida();
+                check_enderecoRequerido();
+                check_numeroCartaPatenteRequerido();
+
+
+
+                if (verificaCPF === false) {
+                    var mensagemAlerta = 'CPF inválido'
+                    alerta(mensagemAlerta);
+                    return false;
+                }
+                if (verificaCNPJ === false) {
+                    var mensagemAlerta = 'CNPJ inválido'
+                    alerta(mensagemAlerta);
+                    return false;
+                }
+                if (error_nomeCompleto === true && error_nacionalidade === true && error_estadoCivil === true && error_profissao === true && error_endereco === true && error_cnpjRequerente === true && error_atividadeIndustrial === true && error_produtoRequerente === true && error_valorExtenso === true && error_representanteLegal === true && error_cidadeAdvogado === true && error_enderecoAdvogado === true && error_cidadeINPI === true && error_enderecoINPI === true && error_numeroCartaPatenteAnulada === true && error_empresaRequerida === true && error_enderecoRequerido === true && error_numeroCartaPatenteRequerido === true) {
+                    var mensagemAlerta = 'Dados inválidos'
+                    alerta(mensagemAlerta);
+                    alerta();
+                    return false;
+                }
+
+            });
+        });
+    </script>
+</body>
+
+</html>
